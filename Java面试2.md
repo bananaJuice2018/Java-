@@ -1,5 +1,100 @@
 ## Java面试 OOP
 
+### Four types of OOP
+
+### 1. Polymorphism ###
+
+Method overriding ->  Polymorphism
+
+Overrides/overloading is part of polymorphism.
+https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/
+
+**Overrides**
+In Java, method overriding occurs when a subclass (child class) has the same method as the parent class. In other words, method overriding occurs when a subclass provides a particular implementation of a method declared by one of its parent classes. The ability for a subclass to override a method allows a class to inherit from a superclass with "near enough" actions and then change it as required.
+
+In IntellJ, using the shortcut Ctrl-O will prompt you to select functions you can override from inherited classes.  The list will include any overridable functions including:
+* Public or Protected Functions (unless they are marked final)
+* Functions in interfaces
+
+```java
+class Vehicle {
+    void engine() {
+        System.out.println("This is a vehicle engine.");
+    }
+}
+
+// Child Class
+class Bike extends Vehicle {
+    // Create a method as same as in parent class
+    // But changing the output as bike engine
+    void engine() {
+        System.out.println("This is a bike engine.");
+    }
+}
+
+// Chill Class
+class Car extends Vehicle {
+    // Create a method as same as in parent class
+    // But changing the output as car engine
+    void engine() {
+        System.out.println("This is a car engine.");
+    }
+}
+
+    public class CodeExample {
+        public static void main(String[] arg) {
+            Bike honda = new Bike(); // Create object for bike
+            honda.engine(); // Calling engine method
+    
+            Car benz = new Car();
+            benz.engine();
+        }
+    }
+```
+
+
+
+
+
+
+### 2. Inheritance ###
+
+Inheritance in Java are a form of class that can be inherited by other classes and interfaces. Derived Class -> Base Class.  In Java, you can only inherit (extends) one class but you can inherit (implements) multiple interfaces.
+
+**Why use Inheritance in Java?**
+
+- Code reusability. Child class can use the common attributes or methods from parent class.
+- Method overriding(polymorphism).
+
+
+An interface contains function declarations only (no implementation). Allows multiple inheritance through Interface.
+
+```java
+public interface Messenger {
+    public int sendMessage(String message);
+    public int receiveMessage(String message);
+}
+
+
+```
+
+Use interfaces in the following cases:
+1) You need to do multiple inheritance
+2) You have a common interface that needs to be implemented by un-related classes (they don't have the same base class).  This is the most common reason for creating an interface.
+
+If you have dervied classes from a common base class but only some of those derived classes share a common interface.  The use of the `instanceof` operator can help you determine if an object of the base class implemented those interfaces.  Note that `null instanceof MyClass` will always be false.
+
+
+### 3. Encapsulation ###
+1. Making the member variable or member methods of a class `private`.
+
+2. public `Getter` and S`etter` to access the data. 
+
+**Advantages of Encapsulation**:
+
+* Data Hiding: The user will have no idea about the inner implementation of the class. It will not be visible to the user how the class is storing values in the variables.
+
+* Increased Flexibility: We can make the variables of the class read-only or write-only depending on our requirement.
 
 ### 4. Abstraction ###
 
@@ -111,120 +206,4 @@ An abstract method is a method that is declared without implementation.
 
 
 3. An abstract class can have parameterized constructors and the default constructor is always present in an abstract class.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Four types of OOP
-
-### 1. Polymorphism ###
-
-Method overriding ->  Polymorphism
-
-Overrides/overloading is part of polymorphism.
-https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/
-
-**Overrides**
-In Java, method overriding occurs when a subclass (child class) has the same method as the parent class. In other words, method overriding occurs when a subclass provides a particular implementation of a method declared by one of its parent classes. The ability for a subclass to override a method allows a class to inherit from a superclass with "near enough" actions and then change it as required.
-
-In IntellJ, using the shortcut Ctrl-O will prompt you to select functions you can override from inherited classes.  The list will include any overridable functions including:
-* Public or Protected Functions (unless they are marked final)
-* Functions in interfaces
-
-```java
-class Vehicle {
-    void engine() {
-        System.out.println("This is a vehicle engine.");
-    }
-}
-
-// Child Class
-class Bike extends Vehicle {
-    // Create a method as same as in parent class
-    // But changing the output as bike engine
-    void engine() {
-        System.out.println("This is a bike engine.");
-    }
-}
-
-// Chill Class
-class Car extends Vehicle {
-    // Create a method as same as in parent class
-    // But changing the output as car engine
-    void engine() {
-        System.out.println("This is a car engine.");
-    }
-}
-
-    public class CodeExample {
-        public static void main(String[] arg) {
-            Bike honda = new Bike(); // Create object for bike
-            honda.engine(); // Calling engine method
-    
-            Car benz = new Car();
-            benz.engine();
-        }
-    }
-```
-
-
-
-
-
-
-### 2. Inheritance ###
-
-Inheritance in Java are a form of class that can be inherited by other classes and interfaces. Derived Class -> Base Class.  In Java, you can only inherit (extends) one class but you can inherit (implements) multiple interfaces.
-
-**Why use Inheritance in Java?**
-
-- Code reusability. Child class can use the common attributes or methods from parent class.
-- Method overriding(polymorphism).
-
-
-An interface contains function declarations only (no implementation). Allows multiple inheritance through Interface.
-
-```java
-public interface Messenger {
-    public int sendMessage(String message);
-    public int receiveMessage(String message);
-}
-
-
-```
-
-Use interfaces in the following cases:
-1) You need to do multiple inheritance
-2) You have a common interface that needs to be implemented by un-related classes (they don't have the same base class).  This is the most common reason for creating an interface.
-
-If you have dervied classes from a common base class but only some of those derived classes share a common interface.  The use of the `instanceof` operator can help you determine if an object of the base class implemented those interfaces.  Note that `null instanceof MyClass` will always be false.
-
-
-### 3. Encapsulation ###
-1. Making the member variable or member methods of a class `private`.
-
-2. public `Getter` and S`etter` to access the data. 
-
-**Advantages of Encapsulation**:
-
-* Data Hiding: The user will have no idea about the inner implementation of the class. It will not be visible to the user how the class is storing values in the variables.
-
-* Increased Flexibility: We can make the variables of the class read-only or write-only depending on our requirement.
 
