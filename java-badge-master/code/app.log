@@ -1,0 +1,5 @@
+2019-08-24 04:06:42 [INFO] This is an information message.
+2019-08-24 04:06:42 [DEBUG] This is a debug message.
+2019-08-24 04:06:42 [WARN] This is a warning message
+2019-08-24 04:06:42 [ERROR] This is an error message.
+2019-08-24 04:06:42 [FATAL] This is a fatal message
