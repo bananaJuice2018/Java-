@@ -1,5 +1,23 @@
 ## Java面试1
 
+**Final**
+
+The keyword `final` is used for these purposes:
+* If used on member data in a class, then the data cannot be changed after its initialized.  This is like `const` in C++.
+* If used on member function in a class, then the function can not be overriden.
+* If used on a class, then another class cannot inherit it (in other words, the class cannot be derived any further).
+
+**Static**
+
+You don't need to initialize an object of the class in order to call that method. Call method directly, `Math.min(5, 10)` or `Math.random()`
+
+Static member data in a class will exist whether an object is created or not.  All objects of the same class will share the static member data.  Static member functions in a class can be executed whether an object exists or not.  Main is a great example of a static member function.  The main function is called before an object of the class is created.  Actually, the main function usually create the first object.  
+
+Static member functions cannot use member data unless the member data is static.
+
+why use Static keyword in Java? To efficiently manage memory, access only a couple of methods or variables of a class.
+
+
 **Exception Handling**
 
 When programming, you have to choose your error handling strategy:
@@ -226,23 +244,6 @@ In IntellJ, using the shortcut Ctrl-O will prompt you to select functions you ca
 * Functions in interfaces
 
 When you do an override, IntelliJ will automatically put the decorator `@override` in front of the function.  This decorator (something added to a function to provide extra capability) does not affect the behavior of the function which means its optional.  If its included, then IntelliJ will check to see if really is overriding something in a base class.  If it does not (in other words, its not what you were expecting), then you will get an error message.  This can be thought of as self-documentation in the code which is enforced by the compiler.
-
-**Final**
-
-The keyword `final` is used for these purposes:
-* If used on member data in a class, then the data cannot be changed after its initialized.  This is like `const` in C++.
-* If used on member function in a class, then the function can not be overriden.
-* If used on a class, then another class cannot inherit it (in other words, the class cannot be derived any further).
-
-**Static**
-
-You don't need to initialize an object of the class in order to call that method. Call method directly, `Math.min(5, 10)` or `Math.random()`
-
-Static member data in a class will exist whether an object is created or not.  All objects of the same class will share the static member data.  Static member functions in a class can be executed whether an object exists or not.  Main is a great example of a static member function.  The main function is called before an object of the class is created.  Actually, the main function usually create the first object.  
-
-Static member functions cannot use member data unless the member data is static.
-
-why use Static keyword in Java? To efficiently manage memory, access only a couple of methods or variables of a class.
 
 **Interfaces**
 
