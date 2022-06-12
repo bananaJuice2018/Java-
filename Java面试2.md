@@ -189,11 +189,17 @@ class Car extends Vehicle {
 
 
 
-###2. Inheritance ###
+### 2. Inheritance ###
 
-Interfaces in Java are a form of class that can be inherited by other classes and interfaces.  In Java, you can only inherit (extends) one class but you can inherit (implements) multiple interfaces.
+Inheritance in Java are a form of class that can be inherited by other classes and interfaces. Derived Class -> Base Class.  In Java, you can only inherit (extends) one class but you can inherit (implements) multiple interfaces.
 
-An interface contains function declarations only (no implementation).  This is just like pure virtual functions in C++.  Here is an example of an interface in Java and in C++:
+**Why use Inheritance in Java?**
+
+- Code reusability. Child class can use the common attributes or methods from parent class.
+- Method overriding(polymorphism).
+
+
+An interface contains function declarations only (no implementation). Allows multiple inheritance through Interface.
 
 ```java
 public interface Messenger {
@@ -201,11 +207,7 @@ public interface Messenger {
     public int receiveMessage(String message);
 }
 
-class Messenger
-{
-    public virtual int sendMessage(String message) = 0;
-    public virtual int receiveMessage(String message) = 0;
-}
+
 ```
 
 Use interfaces in the following cases:
@@ -215,7 +217,7 @@ Use interfaces in the following cases:
 If you have dervied classes from a common base class but only some of those derived classes share a common interface.  The use of the `instanceof` operator can help you determine if an object of the base class implemented those interfaces.  Note that `null instanceof MyClass` will always be false.
 
 
-###3. Encapsulation ###
+### 3. Encapsulation ###
 1. Making the member variable or member methods of a class `private`.
 
 2. public `Getter` and S`etter` to access the data. 
